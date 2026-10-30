@@ -1,31 +1,40 @@
-.service-slider{
+.service-slider {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 52px;
+    gap: 24px;
+
     width: 100%;
-    margin-bottom: 64px;
+    max-width: 1320px;
+    margin: 60px auto 0;
 }
 
-.service-slider__cards{
+.service-slider__cards {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap:50px;
+    gap: 24px;
 
     flex: 1;
     min-width: 0;
+
     overflow-x: auto;
+    scrollbar-width: none;
 }
 
-.service-slider__arrow{
+.service-slider__arrow {
+    flex-shrink: 0;
+
     width: 34px;
     height: 34px;
 
-    border-radius: 50%;
-    border: 1px solif #fff;
-    background: transparent;
-    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
+    padding: 0;
+    border: 1px solid white;
+    border-radius: 50%;
+
+    background: transparent;
+    color: white;
     cursor: pointer;
 }

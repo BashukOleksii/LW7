@@ -2,7 +2,7 @@ import ServiceCard from '../ServiceCard/ServiceCard'
 import "./ServiceSlider.css"
 
 export default function ServiceSlider({activeServiceId,services,onSelect}){
-    const curentIndex = services.find( s => s.id === activeServiceId);
+    const curentIndex = services.findIndex( s => s.id === activeServiceId);
 
     function handlePrevius(){
 

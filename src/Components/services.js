@@ -1,8 +1,8 @@
-import automation from "../assets/Rectangle 83.jpg";
-import production from "../assets/Rectangle 84.jpg";
-import infrastructure from "../assets/Rectangle 85.jpg";
-import security from "../assets/Rectangle 86.jpg";
-import information from "../assets/Rectangle 87.jpg";
+import automation from "../assets/Rectangle 83.png";
+import production from "../assets/Rectangle 84.png";
+import infrastructure from "../assets/Rectangle 85.png";
+import security from "../assets/Rectangle 86.png";
+import information from "../assets/Rectangle 87.png";
 
 export const services = [
   {
