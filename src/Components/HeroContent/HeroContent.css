@@ -1,0 +1,20 @@
+.hero-content{
+    text-align: center;
+}
+
+.hero-content-title{
+    max-width: 700px;
+    
+    font-size: 52px;
+    font-weight: 700;
+    text-transform: uppercase;
+
+    margin: 0 auto 18px;
+}
+
+.hero-content__description{
+    max-width: 750px;
+    font-size: 22px;
+    font-weight: 400;
+    margin: 0 auto;
+}

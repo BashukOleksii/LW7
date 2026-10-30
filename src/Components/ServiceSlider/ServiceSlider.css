@@ -1,0 +1,31 @@
+.service-slider{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 52px;
+    width: 100%;
+    margin-bottom: 64px;
+}
+
+.service-slider__cards{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap:50px;
+
+    flex: 1;
+    min-width: 0;
+    overflow-x: auto;
+}
+
+.service-slider__arrow{
+    width: 34px;
+    height: 34px;
+
+    border-radius: 50%;
+    border: 1px solif #fff;
+    background: transparent;
+    color: #fff;
+
+    cursor: pointer;
+}
