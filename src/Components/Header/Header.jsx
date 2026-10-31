@@ -1,5 +1,5 @@
+import LanguageSelector from '../LanguageSelector/LanguageSelector'
 import logo from '../../assets/SiteLogo.png'
-import language from '../../assets/Group 36.png'
 import find from '../../assets/find.png'
 import account from '../../assets/account.png'
 import './Header.css'
@@ -17,7 +17,7 @@ export default function Header(){
                 <Navigation /> 
 
                 <div className='header__actions'>
-                    <img src={language} alt='language'/>
+                    <LanguageSelector />
                     <div className='separator'/>
                     <img src={find} alt='find'/>
                     <img src={account} alt='account'/>
