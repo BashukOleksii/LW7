@@ -4,6 +4,11 @@ import "./ServiceSlider.css"
 export default function ServiceSlider({activeServiceId,services,onSelect}){
     const curentIndex = services.findIndex( s => s.id === activeServiceId);
 
+    const orderedService = [
+        ...services.slice(curentIndex),
+        ...services.slice(0,curentIndex)
+    ];
+
     function handlePrevius(){
 
         const previusIndex = (curentIndex - 1 + services.length) % services.length;
@@ -29,11 +34,11 @@ export default function ServiceSlider({activeServiceId,services,onSelect}){
 
             <div className='service-slider__cards'>
                 {
-                    services.map( (service) => (
+                    orderedService.map( (service,index) => (
                         <ServiceCard 
                             key={service.id}
                             service={service}
-                            isActive={service.id === activeServiceId}
+                            isActive={index === 0}
                         />
                     ))
                 }

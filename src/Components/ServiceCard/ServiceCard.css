@@ -48,6 +48,6 @@
 
 @media (max-width: 600px) {
     .service-card {
-        flex-basis: 70%;
+        flex-basis: 100%;
     }
 }
