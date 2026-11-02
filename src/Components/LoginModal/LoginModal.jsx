@@ -1,8 +1,9 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import './LoginModal.css'
 
-export default function LoginModal({onClose}){
+export default function LoginModal({Close}){
     const dialogRef = useRef(null);
+    const [errors, setErrors] = useState({ email: '', password: '' });
 
     useEffect(() => {
         const dialog = dialogRef.current;
@@ -19,6 +20,22 @@ export default function LoginModal({onClose}){
 
     function handleSubmit(event){
         event.preventDefault()
+
+        const form = new FormData(event.currentTarget);
+
+        const email = form.get('login-email');
+        const password = form.get('login-password');
+
+        if(!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
+            setErrors(prev => ({...prev, email: 'Невірний формат пошти'}));
+
+        if(!password || password.trim().length < 8){
+            setErrors(prev => ({...prev, password: 'Пароль не може бути менше 8 символів' }));
+        }
+
+        if(!errors.email && !errors.password) {
+            Close();
+        }
     };
 
       function handleBackdropClick(event) {
@@ -31,7 +48,7 @@ export default function LoginModal({onClose}){
         <dialog
             ref={dialogRef}
             className="login-modal"
-            onClose={onClose}
+            onClose={Close}
             onClick={handleBackdropClick}
             aria-labelledby="login-modal-title"
         >
@@ -57,10 +74,11 @@ export default function LoginModal({onClose}){
 
                     <input
                         id="login-email"
-                        type="email"
                         placeholder="Enter your email"
                         required
                     />
+
+                    {errors.email && <span className="login-modal__error">{errors.email}</span>}
 
                     <label htmlFor="login-password">
                         Password
@@ -72,6 +90,8 @@ export default function LoginModal({onClose}){
                         placeholder="Enter your password"
                         required
                     />
+
+                    {errors.password && <span className="login-modal__error">{errors.password}</span>}
 
                     <button
                         type="submit"

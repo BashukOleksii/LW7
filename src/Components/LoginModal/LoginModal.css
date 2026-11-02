@@ -67,3 +67,9 @@
 .login-modal__submit:hover {
     background: #0068db;
 }
+
+.login-modal__error {
+    color: red;
+    font-size: 14px;
+    margin-top: 4px;
+}
