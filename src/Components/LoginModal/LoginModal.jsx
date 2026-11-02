@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import './LoginModal.css'
 
-export default function LoginModal({Close}){
+export default function LoginModal({onClose}){
     const dialogRef = useRef(null);
     const [errors, setErrors] = useState({ email: '', password: '' });
 
@@ -18,25 +18,33 @@ export default function LoginModal({Close}){
         }
     }, [])
 
-    function handleSubmit(event){
-        event.preventDefault()
+    function handleSubmit(event) {
+        event.preventDefault();
 
         const form = new FormData(event.currentTarget);
 
         const email = form.get('login-email');
         const password = form.get('login-password');
 
-        if(!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
-            setErrors(prev => ({...prev, email: 'Невірний формат пошти'}));
+        const newErrors = {
+            email: '',
+            password: ''
+        };
 
-        if(!password || password.trim().length < 8){
-            setErrors(prev => ({...prev, password: 'Пароль не може бути менше 8 символів' }));
+        if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            newErrors.email = 'Невірний формат пошти';
         }
 
-        if(!errors.email && !errors.password) {
-            Close();
+        if (!password || password.trim().length < 8) {
+            newErrors.password = 'Пароль має містити щонайменше 8 символів';
         }
-    };
+
+        setErrors(newErrors);
+
+        if (!newErrors.email && !newErrors.password) {
+            onClose();
+        }
+    }
 
       function handleBackdropClick(event) {
         if (event.target === event.currentTarget) {
@@ -48,7 +56,7 @@ export default function LoginModal({Close}){
         <dialog
             ref={dialogRef}
             className="login-modal"
-            onClose={Close}
+            onClose={onClose}
             onClick={handleBackdropClick}
             aria-labelledby="login-modal-title"
         >
@@ -74,6 +82,7 @@ export default function LoginModal({Close}){
 
                     <input
                         id="login-email"
+                        name="login-email"
                         placeholder="Enter your email"
                         required
                     />
@@ -86,6 +95,7 @@ export default function LoginModal({Close}){
 
                     <input
                         id="login-password"
+                        name="login-password"
                         type="password"
                         placeholder="Enter your password"
                         required

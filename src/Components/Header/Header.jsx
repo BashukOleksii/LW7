@@ -16,7 +16,7 @@ export default function Header(){
                 <img src={logo} alt='logotype' />
             </div>
 
-            <div className='heared__right'>
+            <div className='header__right'>
                 <Navigation /> 
 
                 <div className='header__actions'>
