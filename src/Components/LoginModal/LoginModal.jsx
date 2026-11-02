@@ -11,12 +11,7 @@ export default function LoginModal({onClose}){
         if (!dialog.open) {
         dialog.showModal();
         }
-
-        return () =>{
-            if(dialog.open)
-                dialog.close();
-        }
-    }, [])
+    }, []);
 
     function handleSubmit(event) {
         event.preventDefault();
