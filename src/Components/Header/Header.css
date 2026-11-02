@@ -25,3 +25,25 @@
     height: 16px;
     background-color: #fff;
 }
+
+.header__account {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 24px;
+    height: 24px;
+    padding: 0;
+
+    border: none;
+    background: transparent;
+
+    cursor: pointer;
+}
+
+.header__account img {
+    display: block;
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
